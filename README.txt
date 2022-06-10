@@ -1,6 +1,6 @@
 CYBERSECURITY NOTES:
 
-
+*******************************************************************************************************************************
 Module 1:
 
 Cybersecurity encompasses any measure taken to secure computer systems, networks, and data.
@@ -120,3 +120,110 @@ DDOS Attack ---> (distributed denial-of-service)
     - too many requests to overload server.
     - a cybercrime in which the attacker floods a server with internet traffic to prevent users from accessing connected online services and sites.
     - A DDoS attack occurs when a threat actor uses resources from multiple, remote locations to attack an organization’s online operations. Usually, DDoS attacks focus on generating attacks that manipulate the default, or even proper workings, of network equipment and services (e.g., routers, naming services or caching services).
+
+
+*******************************************************************************************************************************
+Module 2:
+
+Cross-Stack Request Forgery ---> CSRF
+    This type of attack relies on a perpetrator forging a user's credentials in order to steal data.
+    Within the past few years, Github was victimized by this type of attack.
+        The attacker was able to hide a script within an email that when clicked, gave the attacker access to any private repositories associated with the user's credentials.
+
+    CSRF attacks steal data by exploiting back-end vulnerabilities?
+    🚫True
+    ✅False: CSRF attacks rely on hidden scripts running in the browser.
+
+Script Injection ---> XSS is an acronym for Cross-Site Scripting.
+    In order to explain an XSS attack, it may be helpful to think of the Trojan Horse.
+    XSS attacks always involve a malicious script hidden as either a user or a trusted site.
+
+    The attack may be hidden in various ways, but often involves the malicious code being hidden inside an HTML script tag. tag.
+
+    The victim, either by clicking a link, or simply navigating to the wrong page, unwittingly runs the code within the hidden <script> tag.
+
+    A couple decades ago, the internet was mostly HTML.
+    Sites that were not vigilant about sanitizing data before displaying it often fell prey to such attacks.
+
+Cross-Site Scripting ---> XSS
+    At one time, Cross-Site Scripting attacks were among the most popular types of cyber attacks.
+    They accounted for 84% of all security vulnerabilities through 2007.
+
+Self-Protection Strategies --->
+    intro. to SQL Injection:
+        SQL injection is an attack vector or pattern that attempts to expose data through SQL statements.
+
+    Data sanitization is the process of irreversibly removing or destroying data stored on a memory device [...] or in hard copy form.
+
+    Proper API Key Usage:
+        Never embed keys in code --->
+            •May result in exposure if forgotten and left in code
+            •Use environmental variables (dotenv) or files external to your application (ignored with .gitignore)
+        Delete and regenerate keys often --->
+            Any unneeded API keys should be deleted immediately.
+        Never store keys in app source directory --->
+            They could end up in public source control system such as Github.
+        Set up restrictions for application and API keys --->
+            •Can help reduce impact if key is exposed
+            •Helpful Google documentation on restrictions here
+
+Review:
+    We just finished: 
+        Data Sanitization
+            •How to properly use and store API keys
+            •Application security methods
+            •The importance of production configurations
+    Before that, we covered:
+        SQL Injection
+            •How to exploit an SQL vulnerability
+            •SQL injection example from the recent past
+
+*******************************************************************************************************************************Module 3:        
+
+Authentication ---> is the user who they say they are?
+    vs. 
+Authorization ---> should the user have permission to do what they've requested? 
+
+Hashing ---> •Stores data securely from external threats
+             •Transmits sensitive data (over internet or physical distance)
+    vs. 
+Encryption ---> •Stores passwords securely
+                •Maps data to memory (hash tables)
+    
+Both ---> 
+    •Use an algorithm to transform data
+    •Produce a result based on the input data
+    •Hide or obfuscate data in order to protect it
+    
+Types of Encryption --->
+    Encryption is either symmetric or asymmetric. Common algorithms 
+include:
+    •Blowfish / TwoFish
+    •Advanced Encryption Standard (AES)
+    •RSA (public / private key)
+
+Symmetric Encryption --->
+    Think about locking the door to your house.
+    You want your roomates (authorized users) to be able to enter, so you give them each a copy of the key that opens the door.
+    This is called symmetric key encryption, where everyone uses the same key.
+
+Asymmetric Encryption --->
+    Asymmetric encryption uses two separate keys.
+        1. A public key is used for locking and a 
+        2. private key is used for unlocking.
+
+Have you heard of Alan Turing?
+    He worked for British intelligence and helped to crack the German's Enigma machine (an early form of encryption).
+    Historians estimate that this breakthrough shortened WWII by two years and saved millions of lives.
+
+Salts ---> A salt is attached to data to further randomize it.
+    It's generally text or a bit of gibberish.
+    Each password has a different salt, so a rainbow table can't be used. The attacker is back to square one.
+
+Summary:
+    •Encryption and hashing both obfuscate data for protection.
+    •Encryption is reversible (decryption).
+    •Hashing is not reversible.
+    •Encryption protects from external threats. 
+    •Hashing protects from internal and external threats.
+
