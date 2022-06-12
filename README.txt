@@ -227,3 +227,54 @@ Summary:
     •Encryption protects from external threats. 
     •Hashing protects from internal and external threats.
 
+*******************************************************************************************************************************
+Module 4:
+
+Sessions ---> Data that persists about a specific user from one HTTP request to the next.
+    cookieSession ---> used in Express.js
+
+    * sessions are built on cookies.
+        - cookies are part of a HTTP response
+    
+    credentials: 'include';
+        to enable cookies with fetch requests we need to pass this additional option.
+
+    Forms Do Not need credientials: 'include';
+        credentials: 'include' is only required for fetch requests.
+            Meaning that cookies are automatically attached:
+                •When the user clicks on a link
+                •When the user types a path in the URL bar
+                •When a user submits a form
+                •(whose default behavior has not been prevented)
+
+    Safeguard 1: SameSite Cookies
+        •Protects against CSRF attacks
+        •Doesn't protect all browsers
+        •90%, according to caniuse.com at the time of writing
+    Safeguard 2: CSRF Tokens
+        •Protect against CSRF attacks
+        •Works for all browsers
+        •Extremely complex to implement in a single-page application
+
+JWT ---> JSON Web Token
+    •Pronounced like "Jawt"
+    •An encoded string
+    •Can be given to the front end when a user logs in
+    • Can later be checked more efficiently than a username and password
+    •Like a Disney wrist band
+
+    3 parts of a JWT:
+        Header ---> includes meta data about the token like the algorithm and token type.
+        Payload ---> includes app-specific data, kind of like the body of an HTTP request.
+        Signature ---> used to verify that the JWT hasn't been tampered with.
+
+    JWT payloads are NOT encrypted.
+
+    JWT's can be saved in localStorage.
+
+    JWT's can be sent in request headers.cookie
+
+    Safeguard: Expired JWT's
+        •Limits how long an attacker could use stolen JWTs.
+        •Requires processes for our front end to refresh a JWT.
+        •Pretty complex to implement.
